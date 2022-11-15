@@ -1,0 +1,18 @@
+Const wshYes = 6
+Const wshNo = 7
+Const wshYesNoDialog = 4
+Const wshQuestionMark = 32
+
+set wsc = CreateObject("WScript.Shell")
+
+Do
+intReturn = wsc.Popup("Quit?", 10, "Idle", wshYesNoDialog + wshQuestionMark)
+If intReturn = wshYes Then
+WScript.Quit
+ElseIf intReturn = wshNo Then
+WScript.Quit
+Else
+WScript.Sleep (59*1000)
+wsc.SendKeys ("{SCROLLLOCK 2}")
+End If
+Loop
